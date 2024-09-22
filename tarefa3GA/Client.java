@@ -18,6 +18,8 @@ public class Client implements Runnable {
         int num2 = random.nextInt(101);
         int response = stub.sum(num1, num2);
         System.out.println(Thread.currentThread().getName() + " - Request: " + num1 + " + " + num2 + " = " + response);
+        int lastSumResult = stub.getLastSumResult();
+        System.out.println(Thread.currentThread().getName() + " - Last sum result: " + lastSumResult);
       }
     } catch (Exception e) {
       e.printStackTrace();
@@ -30,7 +32,7 @@ public class Client implements Runnable {
       InterfaceRemota stub = (InterfaceRemota) registry.lookup("sum");
 
       // Criação de múltiplos clientes
-      for (int i = 0; i < 5; i++) {
+      for (int i = 0; i < 50; i++) {
         new Thread(new Client(stub), "Client-" + i).start();
       }
     } catch (Exception e) {

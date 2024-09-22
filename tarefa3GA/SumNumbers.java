@@ -6,8 +6,10 @@ public class SumNumbers extends UnicastRemoteObject implements InterfaceRemota {
     super();
   }
 
+  int lastSumResult = 0;
+
   @Override
-  public int sum(int primeiroNumero, int segundoNumero) throws RemoteException {
+  public synchronized int sum(int primeiroNumero, int segundoNumero) throws RemoteException {
     System.out.println(Thread.currentThread().getName() + " - Entrando no método sum");
     try {
       // Simulando um processamento mais longo
@@ -17,7 +19,14 @@ public class SumNumbers extends UnicastRemoteObject implements InterfaceRemota {
     }
 
     int soma = primeiroNumero + segundoNumero;
+    lastSumResult = soma;
     System.out.println(Thread.currentThread().getName() + " - Saindo do método sum com resultado: " + soma);
     return soma;
   }
+
+  @Override
+  public int getLastSumResult() throws RemoteException {
+    return lastSumResult;
+  }
+
 }
