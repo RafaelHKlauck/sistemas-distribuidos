@@ -5,6 +5,13 @@
 - Ele é um mensage Broker, ou seja, ele é um intermediário entre os sistemas.
 - Ele funciona com o protocolo AMQP (Advanced Message Queuing Protocol).
 
+## História
+- Criado em 2006 pela empresa LShift
+- O projeto foi criado com o objetivo de fornecer uma solução de mensageria confiável, escalável e orientada a mensagens, facilitando a comunicação entre sistemas distribuídos
+- O uso do AMQP foi uma resposta à crescente demanda por interoperabilidade entre diferentes componentes de software.
+- Atualmente ele pertence a VMware.
+- A popularidade do RabbitMQ cresceu rapidamente, especialmente em arquiteturas de microsserviços e na nuvem, onde a comunicação assíncrona e a desacoplagem entre componentes são essenciais. Sua flexibilidade, facilidade de configuração e suporte para diversos protocolos além do AMQP, como STOMP, MQTT e HTTP, ajudaram a consolidar sua posição como uma das principais opções de filas de mensagens.
+
 ## Quando usar?
 
 O caso de uso do RabbitMQ é quando temos um sistema que precisa enviar uma mensagem para outro sistema, mas não precisa(ou não pode) esperar a resposta. Ou seja, o sistema envia a mensagem e segue com a execução, sem esperar a resposta.
